@@ -1,0 +1,178 @@
+/* Gotta have style */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    text-shadow:
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
+}
+
+body {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    background-image: url(restaurant_exterior.png);
+    background-repeat: repeat-y;
+    background-position: center;
+    background-color: rgb(20,38,65);
+}
+
+.logos {
+    max-height: 175px;
+    max-width: 300px;
+}
+
+#top_banner {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    min-height: 95px;
+}
+
+#top_row {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#right_content {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#top_row ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    background-color: rgb(20,38,65);
+    color: white;
+}
+
+#main_nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+#main_nav {
+    border: 1px solid white;
+}
+
+#top_row ul li a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+#content a {
+    color: white;
+    text-decoration: none;
+}
+
+#content {
+    flex: 1;
+    display: flex;
+    background-color: transparent;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    color: white;
+}
+
+#content ul {
+    display: flex;
+    list-style: none;
+    font-size: 1.5em;
+}
+
+#content ul li a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+#menu_options li:first-child {
+    margin-right: 100px;
+}
+
+#content ol li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.food {
+    max-height: 150px;
+    max-width: 150px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.food_categories {
+    font-size: 1.4em;
+}
+
+ol {
+    background-color: rgb(20,38,65);
+    margin-right: 50px;
+    margin-bottom: 37px;
+    border: 1px solid white;
+}
+
+#menu_options {
+    background-color: rgb(20,38,65);
+    border: 1px solid white;
+}
+
+#address {
+    background-color: rgb(20,38,65);
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#catering_info {
+    background-color: rgb(20,38,65);
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#catering_menu_link {
+    background-color: rgb(20,38,65);
+    padding: 10px;
+    border: 1px solid white;
+    margin: 20px;
+}
+
+form {
+    background-color: rgb(20,38,65);
+    padding: 20px;
+    border: 1px solid white;
+    margin: 10px;
+}
+
+select, input {
+    font-size: .8em;
+    width: 170px;
+    height: 30px;
+}
+
+h2 {
+    margin-top: 0px;
+}
