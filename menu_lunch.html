@@ -19,6 +19,7 @@
                     <li><a href="menu_select.html">Menus</a></li>
                     <li><a href="reservations.html">Reservations</a></li>
                     <li><a href="catering_info.html">Catering</a></li>
+                    <li><a href="cart.html">Cart</a></li>
                 </ul>
             </div>
         </div>
@@ -27,22 +28,38 @@
                 <li style="display: flex; justify-content: center; font-size: 1.7em; text-decoration: underline; margin-bottom: 30px; margin-top: 15px;">Lunch Menu</li>
                 <li class="food_categories">Sandwiches:</li>
                     <ol>
-                        <li>1. Chicken Sandwich - $7.99<img class="food" src="chicken_sandwich.jpg"/></li>
-                        <li>2. Cheeseburger - $8.99<img class="food" src="cheeseburger.jpg"/></li>
-                        <li>3. Club - $6.99<img class="food" src="club.jpg"/></li>
-                        <li>4. Philly Cheesesteak - $9.99<img class="food" src="philly.jpg"/></li>
-                        <li>5. BLT - $7.99<img class="food" src="BLT.jpg"/></li>
+                        <li>1. Chicken Sandwich - $7.99 <button class="cart_button" onclick="addToCart('Chicken Sandwich', 7.99)">Add to Cart</button><img class="food" src="chicken_sandwich.jpg"/></li>
+                        <li>2. Cheeseburger - $8.99 <button class="cart_button" onclick="addToCart('Cheeseburger', 8.99)">Add to Cart</button><img class="food" src="cheeseburger.jpg"/></li>
+                        <li>3. Club - $6.99 <button class="cart_button" onclick="addToCart('Club', 6.99)">Add to Cart</button><img class="food" src="club.jpg"/></li>
+                        <li>4. Philly Cheesesteak - $9.99 <button class="cart_button" onclick="addToCart('Philly Cheesesteak', 9.99)">Add to Cart</button><img class="food" src="philly.jpg"/></li>
+                        <li>5. BLT - $7.99 <button class="cart_button" onclick="addToCart('BLT', 7.99)">Add to Cart</button><img class="food" src="BLT.jpg"/></li>
                     </ol>
                 <li class="food_categories">Soups:</li>
                     <ol>
-                        <li>1. Chicken Noodle - $3.99<img class="food" src="chicken_noodle.jpg"/></li>
-                        <li>2. Tomato - $3.99<img class="food" src="tomato.jpg"/></li>
-                        <li>3. Clam Chowder - $5.99<img class="food" src="clam.jpg"/></li>
-                        <li>4. French Onion - $4.99<img class="food" src="french_onion.jpg"/></li>
-                        <li>5. Broccoli Cheddar - $5.99<img class="food" src="broccoli_cheddar.jpg"/></li>
+                        <li>1. Chicken Noodle - $3.99 <button class="cart_button" onclick="addToCart('Chicken Noodle', 3.99)">Add to Cart</button><img class="food" src="chicken_noodle.jpg"/></li>
+                        <li>2. Tomato - $3.99 <button class="cart_button" onclick="addToCart('Tomato', 3.99)">Add to Cart</button><img class="food" src="tomato.jpg"/></li>
+                        <li>3. Clam Chowder - $5.99 <button class="cart_button" onclick="addToCart('Clam Chowder', 5.99)">Add to Cart</button><img class="food" src="clam.jpg"/></li>
+                        <li>4. French Onion - $4.99 <button class="cart_button" onclick="addToCart('French Onion', 4.99)">Add to Cart</button><img class="food" src="french_onion.jpg"/></li>
+                        <li>5. Broccoli Cheddar - $5.99 <button class="cart_button" onclick="addToCart('Broccoli Cheddar', 5.99)">Add to Cart</button><img class="food" src="broccoli_cheddar.jpg"/></li>
                     </ol>
             </ol>
         </div>
+        <script>
+            function addToCart(itemName, itemPrice) {
+                let cart = JSON.parse(localStorage.getItem('cartItems'));
+                if (!cart) {
+                    cart = [];
+                }
+
+                cart.push({
+                    name: itemName,
+                    price: itemPrice
+                });
+
+                localStorage.setItem('cartItems', JSON.stringify(cart));
+                alert(itemName + ' added to cart!');
+            }
+        </script>
     </body>
     <footer>
         Copyright 2026 OTB Inc.

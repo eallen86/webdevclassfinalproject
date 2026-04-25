@@ -176,3 +176,35 @@ select, input {
 h2 {
     margin-top: 0px;
 }
+
+.cart_button {
+    display: block;
+    margin-top: 8px;
+    padding: 6px 10px;
+    font-size: 0.6em;
+    cursor: pointer;
+}
+
+#cart_box {
+    background-color: rgb(20,38,65);
+    border: 1px solid white;
+    padding: 20px;
+    min-width: 420px;
+    text-align: left;
+}
+
+#cart_items_list {
+    list-style: none;
+    padding-left: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#cart_items_list li {
+    margin-bottom: 8px;
+}
+
+#order_message {
+    margin-top: 12px;
+    font-weight: bold;
+}

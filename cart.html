@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"/>
+        <title>Cart - Only The Bests</title>
+    </head>
+    <body>
+        <div id="top_row">
+            <div id="right_content">
+                <header id="top_banner">
+                    <a href="home.html">
+                        <img id="company_logo" class="logos" src="logo.png" alt="Only the Bests"/>
+                    </a>
+                    Welcome to Only the Bests, where we only serve the best!
+                </header>
+                <ul id="main_nav">
+                    <li><a href="menu_select.html">Menus</a></li>
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="catering_info.html">Catering</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="cart_box">
+                <h2>Your Cart</h2>
+                <ul id="cart_items_list"></ul>
+                <p id="cart_subtotal">Subtotal: $0.00</p>
+                <p id="cart_tax">Tax (8%): $0.00</p>
+                <p id="cart_total">Total: $0.00</p>
+
+                <button class="cart_button" onclick="placeOrder()">Place Order</button>
+                <button class="cart_button" onclick="clearCart()">Clear Cart</button>
+                <p id="order_message"></p>
+            </div>
+        </div>
+
+        <script>
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem('cartItems'));
+                if (!cart) {
+                    cart = [];
+                }
+
+                const cartList = document.getElementById('cart_items_list');
+                cartList.innerHTML = '';
+
+                let subtotal = 0;
+
+                for (let i = 0; i < cart.length; i++) {
+                    const item = cart[i];
+                    const li = document.createElement('li');
+                    li.textContent = item.name + ' - $' + item.price.toFixed(2);
+                    cartList.appendChild(li);
+                    subtotal = subtotal + item.price;
+                }
+
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+
+                document.getElementById('cart_subtotal').textContent = 'Subtotal: $' + subtotal.toFixed(2);
+                document.getElementById('cart_tax').textContent = 'Tax (8%): $' + tax.toFixed(2);
+                document.getElementById('cart_total').textContent = 'Total: $' + total.toFixed(2);
+            }
+
+            function placeOrder() {
+                let cart = JSON.parse(localStorage.getItem('cartItems'));
+                if (!cart || cart.length === 0) {
+                    document.getElementById('order_message').textContent = 'Your cart is empty. Add items first.';
+                    return;
+                }
+
+                document.getElementById('order_message').textContent = 'Order placed! Thanks for ordering from Only the Bests.';
+                localStorage.removeItem('cartItems');
+                loadCart();
+            }
+
+            function clearCart() {
+                localStorage.removeItem('cartItems');
+                document.getElementById('order_message').textContent = 'Cart cleared.';
+                loadCart();
+            }
+
+            loadCart();
+        </script>
+    </body>
+    <footer>
+        Copyright 2026 OTB Inc.
+    </footer>
+</html>
